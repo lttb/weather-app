@@ -1,0 +1,22 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title input" "subtitle input";
+    grid-gap: 16px 32px;
+}
+
+.title {
+    grid-area: title;
+}
+
+.subtitle {
+    grid-area: subtitle;
+}
+
+.input {
+    grid-area: input;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
