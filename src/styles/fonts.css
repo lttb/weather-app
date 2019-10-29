@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Merriweather;
+    src: local(Merriweather-Regular),
+    url(../fonts/Merriweather-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: PTRootUI;
+    src: local(PTRootUI-Regular),
+    url(../fonts/PTRootUI-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: PTRootUI;
+    src: local(PTRootUI-Medium),
+    url(../fonts/PTRootUI-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: PTRootUI;
+    src: local(PTRootUI-Bold),
+    url(../fonts/PTRootUI-Bold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "weather-app",
+  "version": "0.0.0",
+  "description": "Awesome Weather app",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
+  "author": "Ilya Lesik <ilialesik@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.7.0",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^1.4.1"
+  }
+}
