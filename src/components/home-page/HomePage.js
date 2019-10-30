@@ -6,6 +6,8 @@ import {HomePageLayout} from "./HomePageLayout";
 import {TitleWithInputGrid} from "./TitleWithInputGrid";
 import {Input} from "../input/Input";
 import {SearchButton} from "../input/SearchButton";
+import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
+import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -16,9 +18,14 @@ export const HomePage = () => {
         Simple but powerful weather forcasting service based on OpenWeatherMap API
     </p>;
 
-    const input = <Input placeholder="Search">
-        <SearchButton />
-    </Input>;
+    const input = <SearchRelativelyWrapper>
+        <Input placeholder="Search">
+            <SearchButton />
+        </Input>
+        <SearchAbsoluteContainer>
+            <div style={{height:"84px", width: "100%"}} />
+        </SearchAbsoluteContainer>
+    </SearchRelativelyWrapper>;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} />;
 };
