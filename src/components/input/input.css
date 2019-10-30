@@ -1,0 +1,26 @@
+
+.container {
+    width: 352px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--gray-300);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container__input {
+    margin: 0 16px;
+    flex: 1;
+}
+
+.input {
+    width: 100%;
+    color: var(--gray-500);
+    border: none;
+    background: transparent;
+}
+
+.input::placeholder {
+    color: var(--gray-400);
+}
