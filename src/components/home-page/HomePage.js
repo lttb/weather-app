@@ -15,6 +15,9 @@ import {LoadingStub} from "../search/LoadingStub";
 import {CityCardLayout} from "../city-card/CityCardLayout";
 import {CitiesGrid} from "../cities-grid/CitiesGrid";
 import {RemoveButton} from "../remove-button/RemoveButton";
+import {TemperatureLabel} from "../city-card/TemperatureLabel";
+import {CityLabel} from "../city-card/CityLabel";
+import {DescriptionLabel} from "../city-card/DescriptionLabel";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -36,12 +39,15 @@ export const HomePage = () => {
                 <SearchOption title="London, RU" coords="37.129, -84.0833" />
             </SearchList>}
             {false && <NotFoundStub />}
-            <LoadingStub />
+            {false && <LoadingStub />}
         </SearchAbsoluteContainer>
     </SearchRelativelyWrapper>;
 
     const cards = <CitiesGrid>
-        <CityCardLayout icon={<RemoveButton />} />
+        <CityCardLayout city={<CityLabel>London</CityLabel>}
+                        temperature={<TemperatureLabel>32°C</TemperatureLabel>}
+                        description={<DescriptionLabel>Broken clouds</DescriptionLabel>}
+                        icon={<RemoveButton />} />
     </CitiesGrid>;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;
