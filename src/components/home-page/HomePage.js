@@ -18,6 +18,7 @@ import {RemoveButton} from "../remove-button/RemoveButton";
 import {TemperatureLabel} from "../city-card/TemperatureLabel";
 import {CityLabel} from "../city-card/CityLabel";
 import {DescriptionLabel} from "../city-card/DescriptionLabel";
+import {InfoLabel} from "../city-card/InfoLabel";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -47,6 +48,11 @@ export const HomePage = () => {
         <CityCardLayout city={<CityLabel>London</CityLabel>}
                         temperature={<TemperatureLabel>32°C</TemperatureLabel>}
                         description={<DescriptionLabel>Broken clouds</DescriptionLabel>}
+                        details={<>
+                            <InfoLabel type="wind" title="3,4 m/s" />
+                            <InfoLabel type="humidity" title="76%" />
+                            <InfoLabel type="pressure" title="1026 hPa" />
+                        </>}
                         icon={<RemoveButton />} />
     </CitiesGrid>;
 

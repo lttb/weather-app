@@ -1,0 +1,30 @@
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__title {
+    margin-left: 6px;
+}
+
+.title {
+    color: var(--gray-500);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.icon--humidity {
+    background-image: url("./humidity.svg");
+}
+
+.icon--pressure {
+    background-image: url("./pressure.svg");
+}
+
+.icon--wind {
+    background-image: url("./wind.svg");
+}

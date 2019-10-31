@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.container__bottom > * + * {
+    margin-left: 36px;
+}
+
 .temperature {
     margin-top: 20px;
 }
