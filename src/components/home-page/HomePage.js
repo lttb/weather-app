@@ -11,6 +11,7 @@ import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
 import {SearchList} from "../search/SearchList";
 import {SearchOption} from "../search/SearchOption";
 import {NotFoundStub} from "../search/NotFoundStub";
+import {LoadingStub} from "../search/LoadingStub";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -31,7 +32,8 @@ export const HomePage = () => {
                 <SearchOption title="London, US" coords="37.129, -84.0833" />
                 <SearchOption title="London, RU" coords="37.129, -84.0833" />
             </SearchList>}
-            <NotFoundStub />
+            {false && <NotFoundStub />}
+            <LoadingStub />
         </SearchAbsoluteContainer>
     </SearchRelativelyWrapper>;
 

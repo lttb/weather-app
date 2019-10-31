@@ -1,0 +1,16 @@
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    background: url(./spinner.svg);
+    animation: spinner .6s infinite linear;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
