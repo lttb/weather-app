@@ -1,7 +1,7 @@
 import React from "react";
 import cc from "classcat"
 import * as s from "./homePage.css"
-import * as typography from "../styleguide/typography.css"
+import * as typography from "../typography/typography.css"
 import {HomePageLayout} from "./HomePageLayout";
 import {TitleWithInputGrid} from "./TitleWithInputGrid";
 import {Input} from "../input/Input";

@@ -1,7 +1,7 @@
 import React from "react";
 import cc from "classcat"
 import * as s from "./searchOption.css"
-import * as typography from "../styleguide/typography.css";
+import * as typography from "../typography/typography.css";
 
 export const SearchOption = (props) => {
     const {title, coords, ...otherProps} = props;
