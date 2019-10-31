@@ -8,6 +8,8 @@ import {Input} from "../input/Input";
 import {SearchButton} from "../input/SearchButton";
 import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
 import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
+import {SearchList} from "../search/SearchList";
+import {SearchOption} from "../search/SearchOption";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -23,7 +25,11 @@ export const HomePage = () => {
             <SearchButton />
         </Input>
         <SearchAbsoluteContainer>
-            <div style={{height:"84px", width: "100%"}} />
+            <SearchList>
+                <SearchOption title="London, GB" coords="37.129, -84.0833" />
+                <SearchOption title="London, US" coords="37.129, -84.0833" />
+                <SearchOption title="London, RU" coords="37.129, -84.0833" />
+            </SearchList>
         </SearchAbsoluteContainer>
     </SearchRelativelyWrapper>;
 

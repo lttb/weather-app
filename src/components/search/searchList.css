@@ -1,0 +1,14 @@
+
+.container > * + * {
+    position: relative;
+}
+
+.container > * + * :after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: calc(100% - 50px);
+    height: 1px;
+    background-color: var(--gray-200);
+}
