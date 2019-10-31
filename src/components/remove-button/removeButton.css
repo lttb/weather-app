@@ -1,0 +1,28 @@
+
+.button {
+    width: 48px;
+    height: 48px;
+    border: solid 1px var(--gray-200);
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+}
+
+.button:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    background: url("./remove.svg");
+}
+
+.button:focus,
+.button:hover {
+    background: var(--gray-100);
+}
+
+

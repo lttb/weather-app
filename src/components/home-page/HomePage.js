@@ -12,6 +12,9 @@ import {SearchList} from "../search/SearchList";
 import {SearchOption} from "../search/SearchOption";
 import {NotFoundStub} from "../search/NotFoundStub";
 import {LoadingStub} from "../search/LoadingStub";
+import {CityCardLayout} from "../city-card/CityCardLayout";
+import {CitiesGrid} from "../cities-grid/CitiesGrid";
+import {RemoveButton} from "../remove-button/RemoveButton";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -37,5 +40,9 @@ export const HomePage = () => {
         </SearchAbsoluteContainer>
     </SearchRelativelyWrapper>;
 
-    return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} />;
+    const cards = <CitiesGrid>
+        <CityCardLayout icon={<RemoveButton />} />
+    </CitiesGrid>;
+
+    return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;
 };
