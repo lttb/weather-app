@@ -10,6 +10,7 @@ import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
 import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
 import {SearchList} from "../search/SearchList";
 import {SearchOption} from "../search/SearchOption";
+import {NotFoundStub} from "../search/NotFoundStub";
 
 export const HomePage = () => {
     const title = <h1 className={cc([typography.title, s.title])}>
@@ -25,11 +26,12 @@ export const HomePage = () => {
             <SearchButton />
         </Input>
         <SearchAbsoluteContainer>
-            <SearchList>
+            {false && <SearchList>
                 <SearchOption title="London, GB" coords="37.129, -84.0833" />
                 <SearchOption title="London, US" coords="37.129, -84.0833" />
                 <SearchOption title="London, RU" coords="37.129, -84.0833" />
-            </SearchList>
+            </SearchList>}
+            <NotFoundStub />
         </SearchAbsoluteContainer>
     </SearchRelativelyWrapper>;
 

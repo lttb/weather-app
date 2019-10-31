@@ -1,0 +1,16 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 84px;
+}
+
+.title {
+    color: var(--gray-500);
+}
+
+.hint {
+    color: var(--gray-400);
+}
