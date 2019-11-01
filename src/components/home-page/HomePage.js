@@ -4,14 +4,6 @@ import * as s from "./homePage.css"
 import * as typography from "../typography/typography.css"
 import {HomePageLayout} from "./HomePageLayout";
 import {TitleWithInputGrid} from "./TitleWithInputGrid";
-import {Input} from "../input/Input";
-import {SearchButton} from "../input/SearchButton";
-import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
-import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
-import {SearchList} from "../search/SearchList";
-import {SearchOption} from "../search/SearchOption";
-import {NotFoundStub} from "../search/NotFoundStub";
-import {LoadingStub} from "../search/LoadingStub";
 import {CityCardLayout} from "../city-card/CityCardLayout";
 import {CitiesGrid} from "../cities-grid/CitiesGrid";
 import {RemoveButton} from "../remove-button/RemoveButton";
@@ -19,8 +11,11 @@ import {TemperatureLabel} from "../city-card/TemperatureLabel";
 import {CityLabel} from "../city-card/CityLabel";
 import {DescriptionLabel} from "../city-card/DescriptionLabel";
 import {InfoLabel} from "../city-card/InfoLabel";
+import {Search} from "./Search";
 
 export const HomePage = () => {
+    const [cities, setCities] = React.useState([]);
+
     const title = <h1 className={cc([typography.title, s.title])}>
         Weather forecast
     </h1>;
@@ -29,31 +24,19 @@ export const HomePage = () => {
         Simple but powerful weather forcasting service based on OpenWeatherMap API
     </p>;
 
-    const input = <SearchRelativelyWrapper>
-        <Input placeholder="Search">
-            <SearchButton />
-        </Input>
-        <SearchAbsoluteContainer>
-            {false && <SearchList>
-                <SearchOption title="London, GB" coords="37.129, -84.0833" />
-                <SearchOption title="London, US" coords="37.129, -84.0833" />
-                <SearchOption title="London, RU" coords="37.129, -84.0833" />
-            </SearchList>}
-            {false && <NotFoundStub />}
-            {false && <LoadingStub />}
-        </SearchAbsoluteContainer>
-    </SearchRelativelyWrapper>;
+    const input = <Search onSelectCity={(city) => setCities(cities => [...cities, city])} />;
 
     const cards = <CitiesGrid>
-        <CityCardLayout city={<CityLabel>London</CityLabel>}
-                        temperature={<TemperatureLabel>32°C</TemperatureLabel>}
-                        description={<DescriptionLabel>Broken clouds</DescriptionLabel>}
-                        details={<>
-                            <InfoLabel type="wind" title="3,4 m/s" />
-                            <InfoLabel type="humidity" title="76%" />
-                            <InfoLabel type="pressure" title="1026 hPa" />
-                        </>}
-                        icon={<RemoveButton />} />
+        {cities.map((city, id) => <CityCardLayout key={id}
+                                                  city={<CityLabel>{city.name}</CityLabel>}
+                                                  temperature={<TemperatureLabel>{city.main.temp}°C</TemperatureLabel>}
+                                                  description={<DescriptionLabel>{city.weather[0].description}</DescriptionLabel>}
+                                                  details={<>
+                                                        <InfoLabel type="wind" title={`${city.wind.speed} m/s`} />
+                                                        <InfoLabel type="humidity" title={`${city.main.humidity}%`} />
+                                                        <InfoLabel type="pressure" title={`${city.main.pressure} hPa`} />
+                                                  </>}
+                                                  icon={<RemoveButton />} />)}
     </CitiesGrid>;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;

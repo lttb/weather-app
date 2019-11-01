@@ -1,4 +1,5 @@
 
 .description {
+    text-transform: capitalize;
     color: var(--gray-400);
 }
