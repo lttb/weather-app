@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "weather-app",
+  "regions": ["bru"],
   "env": {
     "NODE_ENV": "production"
   },
