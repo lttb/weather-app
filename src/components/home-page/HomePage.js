@@ -36,7 +36,7 @@ export const HomePage = () => {
                                                         <InfoLabel type="humidity" title={`${city.main.humidity}%`} />
                                                         <InfoLabel type="pressure" title={`${city.main.pressure} hPa`} />
                                                   </>}
-                                                  icon={<RemoveButton />} />)}
+                                                  icon={<RemoveButton onClick={() => setCities(cities => cities.filter((item) => item.id !== city.id))} />} />)}
     </CitiesGrid>;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;
