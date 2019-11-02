@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "weather-app",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "OPEN_WEATHER_APP_ID": "f0497e9d24840ae2f67bb3b20aa4b015"
+    }
+  }
+}
