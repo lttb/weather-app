@@ -44,12 +44,18 @@ export const Search = (props) => {
     }, [error]);
 
     const city = data;
+    const onSearchSubmit = e => {
+        e.preventDefault();
+        setIsSearchNeeded(true);
+    };
 
     return <div onClick={(e) => e.stopPropagation()}>
         <SearchRelativelyWrapper>
-            <Input value={searchValue} onChange={e => setSearchValue(e.target.value)} placeholder="Search">
-                <SearchButton onClick={() => setIsSearchNeeded(true)} />
-            </Input>
+            <form onSubmit={onSearchSubmit}>
+                <Input value={searchValue} onChange={e => setSearchValue(e.target.value)} placeholder="Search">
+                    <SearchButton />
+                </Input>
+            </form>
             {isWindowShowed && <SearchAbsoluteContainer>
                 {!isLoading && city && <SearchList>
                     {city && <SearchOption title={city.name}
