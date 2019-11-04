@@ -16,7 +16,8 @@ import {CitiesStub} from "./CitiesStub";
 import useStoreon from "storeon/react";
 
 export const HomePage = () => {
-    const { dispatch, cities } = useStoreon("cities");
+    const { dispatch, citiesIds, citiesCache } = useStoreon("citiesIds", "citiesCache");
+    const cities = React.useMemo(() => citiesIds.map((id) => citiesCache[id]).filter(city => !!city), [citiesIds, citiesCache]);
 
     const title = <h1 className={cc([typography.title, s.title])}>
         Weather forecast
@@ -38,7 +39,7 @@ export const HomePage = () => {
                                                         <InfoLabel type="humidity" title={`${city.main.humidity}%`} />
                                                         <InfoLabel type="pressure" title={`${city.main.pressure} hPa`} />
                                                   </>}
-                                                  icon={<RemoveButton onClick={() => dispatch("cities/removeCity", id)} />} />)}
+                                                  icon={<RemoveButton onClick={() => dispatch("cities/removeCity", city.id)} />} />)}
     </CitiesGrid> || <CitiesStub />;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;

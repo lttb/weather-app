@@ -786,6 +786,11 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
+"@storeon/localstorage@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@storeon/localstorage/-/localstorage-0.6.2.tgz#2cc9abf57194b585c36b70a593262665b7f0dd24"
+  integrity sha512-zSNPsGt5/4K0pj54LL5Qb/gQrN3e+bMDu1Y34xIWEi0iLG1D5IcYLzRytdboO1WdKxkBPzENEGToTtgbL0JMNA==
+
 "@types/q@^1.5.1":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"

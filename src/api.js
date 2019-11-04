@@ -9,3 +9,12 @@ export const getWeatherByCityName = async (searchValue) => {
     }
     return await result.json();
 };
+
+export const getWeatherByCityId = async (id) => {
+    const result = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${id}&units=metric&APPID=${APP_ID}`);
+    if (!result.ok) {
+        const error = await result.json();
+        throw new Error(error);
+    }
+    return await result.json();
+};
