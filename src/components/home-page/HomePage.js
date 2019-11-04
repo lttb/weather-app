@@ -12,6 +12,7 @@ import {CityLabel} from "../city-card/CityLabel";
 import {DescriptionLabel} from "../city-card/DescriptionLabel";
 import {InfoLabel} from "../city-card/InfoLabel";
 import {Search} from "./Search";
+import {CitiesStub} from "./CitiesStub";
 
 export const HomePage = () => {
     const [cities, setCities] = React.useState([]);
@@ -26,7 +27,7 @@ export const HomePage = () => {
 
     const input = <Search onSelectCity={(city) => setCities(cities => [...cities, city])} />;
 
-    const cards = <CitiesGrid>
+    const cards = cities && cities.length > 0 && <CitiesGrid>
         {cities.map((city, id) => <CityCardLayout key={id}
                                                   city={<CityLabel>{city.name}</CityLabel>}
                                                   temperature={<TemperatureLabel>{city.main.temp}°C</TemperatureLabel>}
@@ -37,7 +38,7 @@ export const HomePage = () => {
                                                         <InfoLabel type="pressure" title={`${city.main.pressure} hPa`} />
                                                   </>}
                                                   icon={<RemoveButton onClick={() => setCities(cities => cities.filter((item) => item.id !== city.id))} />} />)}
-    </CitiesGrid>;
+    </CitiesGrid> || <CitiesStub />;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;
 };

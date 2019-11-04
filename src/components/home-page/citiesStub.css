@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    flex-direction: column;
+}
+
+.container__hint {
+    margin-top: 8px;
+}
+
+.text {
+    font-family: Merriweather;
+    font-size: 24px;
+    color: var(--gray-400);
+    text-align: center;
+}
