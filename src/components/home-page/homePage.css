@@ -3,7 +3,19 @@
     color: var(--gray-500);
 }
 
+@media (max-width: 767px) {
+    .title {
+        text-align: center;
+    }
+}
+
 .subtitle {
     color: var(--gray-400);
     letter-spacing: 0.2px;
+}
+
+@media (max-width: 767px) {
+    .subtitle {
+        text-align: center;
+    }
 }

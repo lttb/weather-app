@@ -7,9 +7,22 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 767px) {
+    .container {
+        padding: 24px 16px;
+    }
+}
+
+
 .inner {
     width: 992px;
     margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .inner {
+        width: 100%;
+    }
 }
 
 .main {

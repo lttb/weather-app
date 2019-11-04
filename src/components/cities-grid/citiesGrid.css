@@ -5,3 +5,9 @@
     grid-auto-rows: auto;
     grid-gap: 24px 32px;
 }
+
+@media (max-width: 767px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

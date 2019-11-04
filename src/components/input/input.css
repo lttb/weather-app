@@ -10,6 +10,12 @@
     overflow: hidden;
 }
 
+@media (max-width: 767px) {
+    .container {
+        width: auto;
+    }
+}
+
 .container:focus-within {
     background: var(--gray-100);
     box-shadow: 0 6px 12px 0 rgba(28, 7, 19, 0.1), 0 0 1px 0 rgba(28, 7, 19, 0.2);
