@@ -42,6 +42,12 @@
     margin-left: 36px;
 }
 
+@media (max-width: 1024px) {
+    .container__bottom > * + * {
+        margin-left: 18px;
+    }
+}
+
 @media (max-width: 767px) {
     .container__bottom > * + * {
         margin-left: 0;
