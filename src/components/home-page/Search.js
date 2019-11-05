@@ -9,7 +9,7 @@ import {LoadingStub} from "../search/LoadingStub";
 import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
 import useStoreon from "storeon/react";
 
-export const Search = (props) => {
+export const Search = () => {
     const [searchValue, setSearchValue] = React.useState("");
     const [isWindowShowed, setIsWindowShowed] = React.useState(false);
 

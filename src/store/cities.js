@@ -43,4 +43,8 @@ export default store => {
             citiesCache: {...state.citiesCache, ...newCache}
         })
     });
+
+    store.on("cities/reloadCache", (state) => {
+        store.dispatch("cities/loadCache", state.citiesIds)
+    })
 }

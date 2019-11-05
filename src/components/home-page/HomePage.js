@@ -19,6 +19,13 @@ export const HomePage = () => {
     const { dispatch, citiesIds, citiesCache } = useStoreon("citiesIds", "citiesCache");
     const cities = React.useMemo(() => citiesIds.map((id) => citiesCache[id]).filter(city => !!city), [citiesIds, citiesCache]);
 
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            dispatch("cities/reloadCache");
+        }, 60 * 1000);
+        return () => clearInterval(interval);
+    }, []);
+
     const title = <h1 className={cc([typography.title, s.title])}>
         Weather forecast
     </h1>;
