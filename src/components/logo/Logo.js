@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import logoImg from "./logo.svg";
 import * as s from "./logo.css"
 

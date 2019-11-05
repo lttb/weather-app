@@ -1,4 +1,5 @@
-import React from "react";
+import {h} from 'preact';
+import {useEffect, useState} from "preact/hooks"
 import {Input} from "../input/Input";
 import {SearchButton} from "../input/SearchButton";
 import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
@@ -7,46 +8,27 @@ import {SearchOption} from "../search/SearchOption";
 import {NotFoundStub} from "../search/NotFoundStub";
 import {LoadingStub} from "../search/LoadingStub";
 import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
-import useFetch from "react-fetch-hook";
-import {getWeatherByCityName} from "../../api";
+import useStoreon from "storeon/preact";
 
-export const Search = (props) => {
-    const {onSelectCity} = props;
-    const [searchValue, setSearchValue] = React.useState("");
-    const [isSearchNeeded, setIsSearchNeeded] = React.useState(false);
-    const [isWindowShowed, setIsWindowShowed] = React.useState(false);
-    const [errorCityName, setErrorCityName] = React.useState("");
+export const Search = () => {
+    const [searchValue, setSearchValue] = useState("");
+    const [isWindowShowed, setIsWindowShowed] = useState(false);
 
-    const { isLoading, data, error } = useFetch(getWeatherByCityName(searchValue), {
-        depends: [searchValue && searchValue.length > 0, isSearchNeeded]
-    });
+    const { dispatch, foundCity: city, isLoading, searchError } = useStoreon("foundCity", "isLoading", "searchError");
 
-    React.useEffect(() => {
-        if (isLoading) {
-            setIsSearchNeeded(false);
-        }
-    }, [isLoading]);
-
-    React.useEffect(() => {
+    useEffect(() => {
         setIsWindowShowed(true);
-    }, [isLoading, data, error]);
+    }, [isLoading, city, searchError]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const listener = () => setIsWindowShowed(false);
         window.addEventListener("click", listener);
         return () => window.removeEventListener("click", listener);
     });
 
-    React.useEffect(() => {
-        if (error) {
-            setErrorCityName(searchValue);
-        }
-    }, [error]);
-
-    const city = data;
     const onSearchSubmit = e => {
         e.preventDefault();
-        setIsSearchNeeded(true);
+        dispatch("search/find", searchValue)
     };
 
     return <div onClick={(e) => e.stopPropagation()}>
@@ -60,12 +42,12 @@ export const Search = (props) => {
                 {!isLoading && city && <SearchList>
                     {city && <SearchOption title={city.name}
                                            onClick={() => {
-                                               onSelectCity && onSelectCity(city);
+                                               dispatch("cities/addCity", city);
                                                setIsWindowShowed(false);
                                            }}
                                            coords={city.coord && `${city.coord.lat}, ${city.coord.lon}`} />}
                 </SearchList>}
-                {!isLoading && error && <NotFoundStub city={errorCityName} />}
+                {!isLoading && searchError && searchError.city && <NotFoundStub city={searchError.city} />}
                 {isLoading && <LoadingStub />}
             </SearchAbsoluteContainer>}
         </SearchRelativelyWrapper>
