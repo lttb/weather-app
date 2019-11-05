@@ -1,4 +1,5 @@
-import React from "react";
+import {h} from 'preact';
+import {useEffect, useState} from "preact/hooks"
 import {Input} from "../input/Input";
 import {SearchButton} from "../input/SearchButton";
 import {SearchAbsoluteContainer} from "../search/SearchAbsoluteContainer";
@@ -7,19 +8,19 @@ import {SearchOption} from "../search/SearchOption";
 import {NotFoundStub} from "../search/NotFoundStub";
 import {LoadingStub} from "../search/LoadingStub";
 import {SearchRelativelyWrapper} from "../search/SearchRelativelyWrapper";
-import useStoreon from "storeon/react";
+import useStoreon from "storeon/preact";
 
 export const Search = () => {
-    const [searchValue, setSearchValue] = React.useState("");
-    const [isWindowShowed, setIsWindowShowed] = React.useState(false);
+    const [searchValue, setSearchValue] = useState("");
+    const [isWindowShowed, setIsWindowShowed] = useState(false);
 
     const { dispatch, foundCity: city, isLoading, searchError } = useStoreon("foundCity", "isLoading", "searchError");
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIsWindowShowed(true);
     }, [isLoading, city, searchError]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const listener = () => setIsWindowShowed(false);
         window.addEventListener("click", listener);
         return () => window.removeEventListener("click", listener);

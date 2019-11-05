@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import {StubContainer} from "./StubContainer";
 import {Spinner} from "../spinner/Spinner";
 

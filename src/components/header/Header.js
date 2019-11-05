@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import * as s from "./header.css"
 import cc from "classcat"
 import {Logo} from "../logo/Logo";

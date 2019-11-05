@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import * as s from "./searchAbsoluteContainer.css"
 
 export const SearchAbsoluteContainer = (props) => {

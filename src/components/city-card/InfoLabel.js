@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import cc from "classcat";
 import * as typography from "../typography/typography.css";
 import * as s from "./infoLabel.css";

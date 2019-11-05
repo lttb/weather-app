@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import * as s from "./cityCardLayout.css";
 
 export const CityCardLayout = (props) => {

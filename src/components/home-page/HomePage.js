@@ -1,4 +1,5 @@
-import React from "react";
+import {h, Fragment} from 'preact';
+import {useEffect, useMemo} from "preact/hooks"
 import cc from "classcat"
 import * as s from "./homePage.css"
 import * as typography from "../typography/typography.css"
@@ -13,13 +14,13 @@ import {DescriptionLabel} from "../city-card/DescriptionLabel";
 import {InfoLabel} from "../city-card/InfoLabel";
 import {Search} from "./Search";
 import {CitiesStub} from "./CitiesStub";
-import useStoreon from "storeon/react";
+import useStoreon from "storeon/preact";
 
 export const HomePage = () => {
     const { dispatch, citiesIds, citiesCache } = useStoreon("citiesIds", "citiesCache");
-    const cities = React.useMemo(() => citiesIds.map((id) => citiesCache[id]).filter(city => !!city), [citiesIds, citiesCache]);
+    const cities = useMemo(() => citiesIds.map((id) => citiesCache[id]).filter(city => !!city), [citiesIds, citiesCache]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const interval = setInterval(() => {
             dispatch("cities/reloadCache");
         }, 60 * 1000);

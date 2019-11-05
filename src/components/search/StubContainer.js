@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import * as s from "./stubContainer.css"
 
 export const StubContainer = (props) => {

@@ -1,4 +1,4 @@
-import React from "react"
+import {h} from 'preact'
 import * as typography from "../typography/typography.css"
 import * as s from "./citiesStub.css"
 

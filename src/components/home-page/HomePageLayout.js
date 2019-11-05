@@ -1,4 +1,4 @@
-import React from "react";
+import {h} from 'preact';
 import * as s from "./homePageLayout.css"
 
 export const HomePageLayout = (props) => {
