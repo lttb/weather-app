@@ -40,7 +40,7 @@ export const HomePage = () => {
     const cards = cities && cities.length > 0 && <CitiesGrid>
         {cities.map((city, id) => <CityCardLayout key={id}
                                                   city={<CityLabel>{city.name}</CityLabel>}
-                                                  temperature={<TemperatureLabel>{city.main.temp}°C</TemperatureLabel>}
+                                                  temperature={<TemperatureLabel>{Math.round(city.main.temp)}°C</TemperatureLabel>}
                                                   description={<DescriptionLabel>{city.weather[0].description}</DescriptionLabel>}
                                                   details={<>
                                                         <InfoLabel type="wind" title={`${city.wind.speed} m/s`} />
