@@ -34,7 +34,7 @@ export const Search = () => {
     return <div onClick={(e) => e.stopPropagation()}>
         <SearchRelativelyWrapper>
             <form onSubmit={onSearchSubmit}>
-                <Input value={searchValue} onChange={e => setSearchValue(e.target.value)} placeholder="Search">
+                <Input id={"search"} label={"Search:"} value={searchValue} onChange={e => setSearchValue(e.target.value)} placeholder="Search">
                     <SearchButton />
                 </Input>
             </form>
