@@ -14,14 +14,13 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
-    "autoprefixer": "^9.7.0",
-    "parcel-bundler": "^1.12.4",
-    "postcss-modules": "^1.4.1"
+    "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
     "@storeon/localstorage": "^0.6.2",
     "classcat": "^4.0.2",
     "preact": "^10.0.4",
+    "reshadow": "^0.0.1-alpha.70",
     "storeon": "^0.9.5"
   }
 }
