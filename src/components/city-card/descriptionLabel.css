@@ -1,5 +1,8 @@
 
 .description {
-    text-transform: capitalize;
     color: var(--gray-400);
+}
+
+.description::first-letter {
+    text-transform: capitalize;
 }
