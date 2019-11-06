@@ -3,8 +3,8 @@ import * as s from "./weatherIcon.css"
 
 export const WeatherIcon = (props) => {
     const {iconCode, description} = props;
-    const img = `http://openweathermap.org/img/wn/${iconCode}.png`;
-    const img2x = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    const img = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    const img2x = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
     return <div className={s.container}>
         <img
