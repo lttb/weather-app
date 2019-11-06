@@ -15,6 +15,7 @@ import {InfoLabel} from "../city-card/InfoLabel";
 import {Search} from "./Search";
 import {CitiesStub} from "./CitiesStub";
 import useStoreon from "storeon/preact";
+import {WeatherIcon} from "../weather-icon/WeatherIcon";
 
 export const HomePage = () => {
     const { dispatch, citiesIds, citiesCache } = useStoreon("citiesIds", "citiesCache");
@@ -47,7 +48,8 @@ export const HomePage = () => {
                                                         <InfoLabel type="humidity" title={`${city.main.humidity}%`} />
                                                         <InfoLabel type="pressure" title={`${city.main.pressure} hPa`} />
                                                   </>}
-                                                  icon={<RemoveButton onClick={() => dispatch("cities/removeCity", city.id)} />} />)}
+                                                  weatherIcon={<WeatherIcon iconCode={city.weather[0].icon} description={city.weather[0].description} />}
+                                                  actionIcon={<RemoveButton onClick={() => dispatch("cities/removeCity", city.id)} />} />)}
     </CitiesGrid> || <CitiesStub />;
 
     return <HomePageLayout titleWithInput={<TitleWithInputGrid title={title} subtitle={subtitle} input={input} />} cards={cards} />;

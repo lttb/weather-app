@@ -57,6 +57,7 @@
 
 .temperature {
     margin-top: 20px;
+    display: flex;
 }
 
 @media (max-width: 767px) {
@@ -69,7 +70,7 @@
     margin-top: 4px;
 }
 
-.icon {
+.action_icon {
     position: absolute;
     right: 24px;
     top: 24px;
@@ -85,4 +86,8 @@
     .separator {
         display: none;
     }
+}
+
+.weather_icon {
+    margin-left: 16px;
 }
