@@ -4,7 +4,7 @@
   "description": "Awesome Weather app",
   "main": "index.js",
   "scripts": {
-    "start": "OPEN_WEATHER_APP_ID=f0497e9d24840ae2f67bb3b20aa4b015 parcel ./src/index.html",
+    "start": "OPEN_WEATHER_APP_ID=f0497e9d24840ae2f67bb3b20aa4b015 parcel ./src/index.html --no-cache",
     "build": "parcel build ./src/index.html --out-dir public"
   },
   "author": "Ilya Lesik <ilialesik@gmail.com>",
@@ -22,7 +22,7 @@
     "@storeon/localstorage": "^0.6.2",
     "classcat": "^4.0.2",
     "preact": "^10.0.4",
-    "reshadow": "^0.0.1-alpha.70",
+    "reshadow": "^0.0.1-alpha.71",
     "storeon": "^0.9.5"
   }
 }
